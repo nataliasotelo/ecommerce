@@ -1,5 +1,54 @@
 const LIST_URL: "https://japceibal.github.io/emercado-api/cats_products/101.json";
-  
+
+//array donde se cargarán los datos recibidos:
+let categoriesArray = [];
+
+//función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
+function showCategoriesList(array){
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < array.length; i++){ 
+        let category = array[i];
+        htmlContentToAppend += `
+        <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="${category.image}" alt="${category.description}" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">${category.name}</h4>
+                            <small class="text-muted">${category.soldCount} artículos</small>
+                        </div>
+                        <p class="mb-1">${category.description}</p>
+                    </div>
+                </div>
+            </div>
+        `
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend; 
+    }
+}
+
+
+/* 
+EJECUCIÓN:
+
+-Al cargar la página se llama a getJSONData() pasándole por parámetro la dirección para obtener el listado.
+-Se verifica el estado del objeto que devuelve, y, si es correcto, se cargan los datos en categoriesArray.
+-Por último, se llama a showCategoriesList() pasándole por parámetro categoriesArray.
+
+*/
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(LIST_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            categoriesArray = resultObj.data;
+            showCategoriesList(categoriesArray);
+        }
+    });
+});
+
 //función para mostrar el spinner de carga:
 function showSpinner(){
     document.getElementById("spinner-wrapper").style.display = "block"; 
@@ -37,54 +86,3 @@ function showSpinner(){
   }
 
   
-//array donde se cargarán los datos recibidos:
-let categoriesArray = [];
-
-//función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
-function showCategoriesList(array){
-    let htmlContentToAppend = "";
-
-    for(let i = 0; i < array.length; i++){ 
-        let category = array[i];
-        htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + category.imgSrc + `" alt="product image" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
-                        <h4>`+  category.name +`</h4> 
-                        <p> `+ category.description +`</p> 
-                        </div>
-                        <small class="text-muted">` + category.productCount + ` artículos</small> 
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        `
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend; 
-    }
-}
-
-
-/* 
-EJECUCIÓN:
-
--Al cargar la página se llama a getJSONData() pasándole por parámetro la dirección para obtener el listado.
--Se verifica el estado del objeto que devuelve, y, si es correcto, se cargan los datos en categoriesArray.
--Por último, se llama a showCategoriesList() pasándole por parámetro categoriesArray.
-
-*/
-
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(LIST_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            categoriesArray = resultObj.data;
-            showCategoriesList(categoriesArray);
-        }
-    });
-});
