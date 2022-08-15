@@ -1,7 +1,5 @@
-const LIST_URL: "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
 //array donde se cargarán los datos recibidos:
-let categoriesArray = [];
 
 //función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
 function showCategoriesList(array){
@@ -10,25 +8,25 @@ function showCategoriesList(array){
     for(let i = 0; i < array.length; i++){ 
         let category = array[i];
         htmlContentToAppend += `
-        <div onclick="setCatID(${category.id})" class="list-group-item list-group-item-action cursor-active">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="${category.image}" alt="${category.description}" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${category.name}</h4>
-                            <small class="text-muted">${category.soldCount} artículos</small>
+        <div class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img src=" ${category.image} " alt="product image" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="mb-1">
+                        <h4> ${category.name} - ${category.currency} ${category.cost} </h4> 
+                        <p> ${category.description} </p> 
                         </div>
-                        <p class="mb-1">${category.description}</p>
+                        <small class="text-muted"> ${category.soldCount} artículos</small> 
                     </div>
                 </div>
             </div>
+        </div>
         `
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend; 
-    }
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;    }
 }
-
 
 /* 
 EJECUCIÓN:
@@ -39,50 +37,13 @@ EJECUCIÓN:
 
 */
 
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(LIST_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            categoriesArray = resultObj.data;
-            showCategoriesList(categoriesArray);
+document.addEventListener("DOMContentLoaded", async (e) => {
+    const response = await getJSONData(autitos_url); /*crea la constante "response" para guardar
+        el json que se consigue con la función getMovies (consigue la "data" del bloque 4).*/
+        if (response.status === "ok") { //pregunta el status del json (response), si está "ok", sigue
+            showCategoriesList(response.data.products); //va al bloque 3
+    
+        } else { //si no está "ok", tira error como alert (string invalida).
+          alert("OCURRIÓ UN ERROR");
         }
     });
-});
-
-//función para mostrar el spinner de carga:
-function showSpinner(){
-    document.getElementById("spinner-wrapper").style.display = "block"; 
-  }
-  
-  //función para ocultar el spinner de carga:
-  function hideSpinner(){
-    document.getElementById("spinner-wrapper").style.display = "none";
-  }
-  
-  //función que realiza el fetch() a la url recibida y devuelve un objeto con los datos y el estado de la respuesta:
-  function getJSONData(url){
-      let result = {};
-      showSpinner(); 
-      return fetch(url) 
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }else{
-          throw Error(response.statusText);
-        }
-      })
-      .then(function(response) {
-            result.status = 'ok';
-            result.data = response;
-            hideSpinner(); 
-            return result;
-      })
-      .catch(function(error) {
-          result.status = 'error';
-          result.data = error;
-          hideSpinner(); 
-          return result;
-      })
-  }
-
-  
