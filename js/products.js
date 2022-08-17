@@ -1,6 +1,4 @@
 
-//array donde se cargarán los datos recibidos:
-
 //función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
 function showCategoriesList(array){
     let htmlContentToAppend = "";
@@ -37,13 +35,12 @@ EJECUCIÓN:
 
 */
 
-document.addEventListener("DOMContentLoaded", async (e) => {
-    const response = await getJSONData(autitos_url); /*crea la constante "response" para guardar
-        el json que se consigue con la función getMovies (consigue la "data" del bloque 4).*/
-        if (response.status === "ok") { //pregunta el status del json (response), si está "ok", sigue
-            showCategoriesList(response.data.products); //va al bloque 3
-    
-        } else { //si no está "ok", tira error como alert (string invalida).
-          alert("OCURRIÓ UN ERROR");
-        }
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(autitos_url).then(function (resultObj) {
+      if (resultObj.status === "ok") {
+        productsArray = resultObj.data.products;
+  
+        showCategoriesList(productsArray);
+      }
     });
+});

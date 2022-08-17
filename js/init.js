@@ -16,21 +16,27 @@ let hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-const getJSONData = async (url) => {
-  const result = {};
-  try {
-      const response = await fetch(url); //hace una petición a la url.
-      if (response.ok) { //si está todo bien, sigue.
-          result.data = await response.json(); /*espera hasta que devuelve una promesa y 
-          toda la imformación que tenga el json (titulo e imagen).*/
-          result.status = "ok"; //asigna el stauts de result en "ok".
-      } else { //sino tira error.
-          throw Error(response.statusText);
+var getJSONData = function (url) {
+  var result = {};
+  showSpinner();
+  return fetch(url)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw Error(response.statusText);
       }
-  } 
-  catch (error) { //si hay un error
-      result.status = 'error'; //asigna el status de result en "error".
-      result.data = error; //le asigna error a "data".
-  }
-  return result;
-}
+    })
+    .then(function (response) {
+      result.status = "ok";
+      result.data = response;
+      hideSpinner();
+      return result;
+    })
+    .catch(function (error) {
+      result.status = "error";
+      result.data = error;
+      hideSpinner();
+      return result;
+    });
+};
