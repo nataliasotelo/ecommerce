@@ -20,10 +20,10 @@ regBtn.addEventListener("click", function(evt){
         
     else {
         Swal.fire(
-            'Genial',
+            'Acceso correcto !',
             'Iniciado con éxito',
             'success'
         )
-        setTimeout(function(evt) {window.location="index.html"}, 500);
+        setTimeout(function(evt) {window.location="inicio.html"}, 2500);
     }
 })
