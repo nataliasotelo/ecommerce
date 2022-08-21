@@ -17,7 +17,7 @@ function showCategoriesList(array){
                         <h5> ${category.name} - ${category.currency} ${category.cost} </h5> 
                         <p> ${category.description} </p> 
                         </div>
-                        <small class="text-muted"> ${category.soldCount} artículos</small> 
+                        <small class="text-muted"> ${category.soldCount} vendidos</small> 
                     </div>
                 </div>
             </div>
