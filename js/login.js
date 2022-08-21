@@ -9,6 +9,7 @@ function showAlertError() {
 const password = document.getElementById("floatingPassword");
 
 regBtn.addEventListener("click", function(evt){
+    evt.preventDefault();
     if (password.value.length < 6){
         Swal.fire({
             icon: 'error',
@@ -23,7 +24,6 @@ regBtn.addEventListener("click", function(evt){
             'Iniciado con éxito',
             'success'
         )
-        window.location.href="/index.html";
+        setTimeout(function(evt) {window.location="index.html"}, 500);
     }
 })
-
