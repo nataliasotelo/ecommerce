@@ -1,11 +1,3 @@
-/* function showAlertSuccess() {
-    document.getElementById("alert-success").classList.add("show");
-}
-
-function showAlertError() {
-    document.getElementById("alert-danger").classList.add("show");
-} */
-
 const password = document.getElementById("floatingPassword");
 
 regBtn.addEventListener("click", function(evt){
