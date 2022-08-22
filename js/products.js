@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       if (resultObj.status === "ok") {
         productsArray = resultObj.data.products;
   
-        showCategoriesList(productsArray);
+        showProductsList(productsArray);
       }
     });
 });
