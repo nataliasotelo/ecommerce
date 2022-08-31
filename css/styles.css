@@ -223,3 +223,13 @@ p {
 .form-signin .mb-4 {
   margin-left: -350px;
 }
+
+#perfil{
+  color: rgba(255,255,255,.75);
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}

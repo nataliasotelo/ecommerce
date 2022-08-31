@@ -1,7 +1,10 @@
 const password = document.getElementById("floatingPassword");
+const user = document.getElementById("floatingInput");
 
 regBtn.addEventListener("click", function(evt){
     evt.preventDefault();
+    if (user.value) localStorage.setItem("text", user.value)
+
     if (password.value.length < 6){
         Swal.fire({
             icon: 'error',
