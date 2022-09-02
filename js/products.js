@@ -35,12 +35,32 @@ EJECUCIÓN:
 
 */
 
-document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(autitos_url).then(function (resultObj) {
-      if (resultObj.status === "ok") {
-        productsArray = resultObj.data.products;
-  
-        showProductsList(productsArray);
-      }
-    });
+document.addEventListener("DOMContentLoaded", function (e) {    
+    if (localStorage.getItem("catID") == 101){
+        getJSONData(autitos_url).then(function (resultObj) {
+            //document.body.innerHTML = "<h7>Verás aquí todos los productos de la categoría </h" + resultObj.data.catName 
+            if (resultObj.status === "ok") {
+              productsArray = resultObj.data.products;
+        
+              showProductsList(productsArray);
+            }
+        });
+    } else if(localStorage.getItem("catID") == 102){
+        getJSONData(juguetes_url).then(function (resultObj) {
+            if (resultObj.status === "ok") {
+              productsArray = resultObj.data.products;
+        
+              showProductsList(productsArray);
+            }
+        });
+    } else {
+            getJSONData(muebles_url).then(function (resultObj) {
+                if (resultObj.status === "ok") {
+                  productsArray = resultObj.data.products;
+            
+                  showProductsList(productsArray);
+                }
+            });
+        }
 });
+
