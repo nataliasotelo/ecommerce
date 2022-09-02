@@ -1,4 +1,3 @@
-
 //función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
 function showProductsList(array){
     let htmlContentToAppend = "";
@@ -26,14 +25,6 @@ function showProductsList(array){
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;    }
 }
 
-/* 
-EJECUCIÓN:
-
--Al cargar la página se llama a getJSONData() pasándole por parámetro la dirección para obtener el listado.
--Se verifica el estado del objeto que devuelve, y, si es correcto, se cargan los datos en categoriesArray.
--Por último, se llama a showCategoriesList() pasándole por parámetro categoriesArray.
-
-*/
 
 document.addEventListener("DOMContentLoaded", function (e) {    
         getJSONData(catproduct_url).then(function (resultObj) {
