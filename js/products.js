@@ -70,7 +70,7 @@ function showProductsList(array){
         </div>
         `
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;    }
-}
+        }
 }
 
 function sortAndShowProducts(sortCriteria, productsArray){
@@ -82,7 +82,7 @@ function sortAndShowProducts(sortCriteria, productsArray){
 
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
-    //Muestro las categorías ordenadas
+    //Muestro los productos ordenados
     showProductsList(productsArray);
 }
 
@@ -121,8 +121,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-        //de productos por categoría.
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
