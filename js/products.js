@@ -53,7 +53,7 @@ function showProductsList(array){
 
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
-            <div class="row">
+            <div class="row shadow-sm custom-card cursor-active" onclick="enviarID(${category.id})">
                 <div class="col-3">
                     <img src=" ${category.image} " alt="product image" class="img-thumbnail">
                 </div>
@@ -62,7 +62,7 @@ function showProductsList(array){
                         <div class="mb-1">
                         <h4> ${category.name} - ${category.currency} ${category.cost} </h4> 
                         <p> ${category.description} </p> 
-                        </div>
+                        </div>  
                         <small class="text-muted"> ${category.soldCount} vendidos</small> 
                     </div>
                 </div>
@@ -71,6 +71,11 @@ function showProductsList(array){
         `
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;    }
         }
+}
+
+function enviarID(id){
+    localStorage.setItem("id_producto", id);
+    window.location = "product-info.html"
 }
 
 function sortAndShowProducts(sortCriteria, productsArray){
@@ -96,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
           showProductsList(productsArray);
         }
     });
-
 
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_PRICE, productsArray);
@@ -140,4 +144,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         showProductsList(productsArray);
     });
-});
+
+})
