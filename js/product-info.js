@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         cat_prod.innerHTML = resultObj.data.category;
         cant_vend.innerHTML = resultObj.data.soldCount;
         if (resultObj.status === "ok") {
-            
+        
             //productosRelacionados = resultObj.data.relatedProducts;
             imagenes = resultObj.data.images;
             // console.log(imagenes)
@@ -22,6 +22,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
             // showProduct(productosRelacionados);
         }
     });
+    
+    getJSONData(comments_x_producto).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            comentarios = resultObj.data
+
+            showComments(comentarios);
+        }
+    })
 
 }
 )
@@ -35,4 +43,35 @@ function showProductIm(array){
     }
 
 
+function showComments(array){
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < array.length; i++){ 
+        let come = array[i];
+
+        htmlContentToAppend += `
+        <div class="list-group-item list-group-item-action">
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="mb-1">
+                        <p> <b>${come.user} </b> - ${come.dateTime} 
+                            `
+                            for (let j = 0; j < 5; j++){
+                                if (come.score <= j)
+                                    htmlContentToAppend += ` <span class="fa fa-star"></span> `
+                                else 
+                                    htmlContentToAppend+= ` <span class="fa fa-star checked"></span> `
+                                  
+                            }
+
+                          htmlContentToAppend+= `</p> 
+                        <p> ${come.description} </p> 
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;    }
+    }
     

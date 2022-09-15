@@ -216,8 +216,8 @@ a.custom-card:hover {
   border-top-right-radius: 0;
 }
 
-p {
-  margin-top: 10px;
+.container p {
+  margin-bottom: 20px;
 }
 
 .form-signin .mb-4 {
@@ -227,3 +227,8 @@ p {
 #name_prod{
   margin-top: 15px; 
 }
+
+.checked {
+  color: orange;
+}
+
