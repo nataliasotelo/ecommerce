@@ -57,11 +57,10 @@ function showComments(array){
                         <p> <b>${come.user} </b> - ${come.dateTime} 
                             `
                             for (let j = 0; j < 5; j++){
-                                if (come.score <= j)
-                                    htmlContentToAppend += ` <span class="fa fa-star"></span> `
+                                if (j <= come.score - 1)
+                                    htmlContentToAppend += `<span class="fa fa-star checked"></span>`
                                 else 
-                                    htmlContentToAppend+= ` <span class="fa fa-star checked"></span> `
-                                  
+                                    htmlContentToAppend+= `<span class="fa fa-star"></span>`
                             }
 
                           htmlContentToAppend+= `</p> 
