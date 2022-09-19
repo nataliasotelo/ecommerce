@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             showProductIm(imagenes);
 
             //esta va a mostrar abajo los productos relacionados
-            // showProduct(productosRelacionados);
+            // showProductRelacionado(productosRelacionados);
         }
     });
     
@@ -34,13 +34,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
 }
 )
 function showProductIm(array){
-   
-    // let htmlContentToAppend = "";
-        for (let i = 0; i < array.length; i++){
-            let fotito = array[i]
-            document.getElementById("im").innerHTML += `<li><a data-target="#pic" data-toggle="tab"><img src="${fotito}" style="width: 20.25rem; display: flex;" alt="product image" class="img-thumbnail"></a></li> `
-        }
+    for (let i = 0; i < array.length; i++){
+        let fotito = array[i]
+        document.getElementById("im").innerHTML += `<li><a data-target="#pic" data-toggle="tab"><img src="${fotito}" style="width: 20.25rem; display: flex;" alt="product image" class="img-thumbnail"></a></li> `
     }
+}
 
 
 function showComments(array){

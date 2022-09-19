@@ -232,3 +232,8 @@ a.custom-card:hover {
   color: orange;
 }
 
+.container #comentarios{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+

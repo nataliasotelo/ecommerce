@@ -46,33 +46,35 @@ function showProductsList(array){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){ 
-        let category = array[i];
+        let productillo = array[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
+        if (((minCount == undefined) || (minCount != undefined && parseInt(productillo.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(productillo.cost) <= maxCount))){
 
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
-            <div class="row shadow-sm custom-card cursor-active" onclick="enviarID(${category.id})">
+            <div class="row shadow-sm custom-card cursor-active" onclick="enviarID(${productillo.id})">
                 <div class="col-3">
-                    <img src=" ${category.image} " alt="product image" class="img-thumbnail">
+                    <img src=" ${productillo.image} " alt="product image" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <div class="mb-1">
-                        <h4> ${category.name} - ${category.currency} ${category.cost} </h4> 
-                        <p> ${category.description} </p> 
+                        <h4> ${productillo.name} - ${productillo.currency} ${productillo.cost} </h4> 
+                        <p> ${productillo.description} </p> 
                         </div>  
-                        <small class="text-muted"> ${category.soldCount} vendidos</small> 
+                        <small class="text-muted"> ${productillo.soldCount} vendidos</small> 
                     </div>
                 </div>
             </div>
         </div>
         `
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;    }
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;    
         }
+    }
 }
 
+//guardo en el localStorage el id del producto que quiero amplificar y lo envío 
 function enviarID(id){
     localStorage.setItem("id_producto", id);
     window.location = "product-info.html"
@@ -128,18 +130,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
 
-        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
+        if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) > 0){
             minCount.soldCount = parseInt(minCount);
         }
         else{
             minCount.soldCount = undefined;
         }
 
-        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) >= 0){
+        if ((maxCount != undefined) && (maxCount != "") && (parseInt(maxCount)) > 0){
             maxCount.soldCount = parseInt(maxCount);
         }
         else{
-            maxCount.sold = undefined;
+            maxCount.soldCount = undefined;
         }
 
         showProductsList(productsArray);

@@ -12,6 +12,5 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
     
-    const nombre = document.getElementById("perfil")
-    nombre.innerHTML = localStorage.getItem("text")
+    
 });

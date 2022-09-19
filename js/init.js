@@ -43,3 +43,8 @@ var getJSONData = function (url) {
       return result;
     });
 };
+
+document.addEventListener("DOMContentLoaded", function(){
+const nombre = document.getElementById("perfil")
+    nombre.innerHTML = localStorage.getItem("text")
+});
