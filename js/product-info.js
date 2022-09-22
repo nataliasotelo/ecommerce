@@ -72,3 +72,7 @@ function showComments(array){
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;    }
     }
     
+
+function showProductRelacionado(productosRelacionados){
+    
+}

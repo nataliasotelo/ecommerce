@@ -19,6 +19,6 @@ regBtn.addEventListener("click", function(evt){
             'Iniciado con éxito',
             'success'
         )
-        setTimeout(function(evt) {window.location="inicio.html"}, 2500);
+        setTimeout(function(evt) {window.location="index.html"}, 2500);
     }
 })
