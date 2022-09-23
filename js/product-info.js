@@ -17,9 +17,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
             imagenes = resultObj.data.images;
             // console.log(imagenes)
             showProductIm(imagenes);
-
+        
+            productosRelacionados = resultObj.data.relatedProducts;
+            console.log(productosRelacionados)
             //esta va a mostrar abajo los productos relacionados
-            // showProductRelacionado(productosRelacionados);
+             showProductRelacionado(productosRelacionados);
         }
     });
     
@@ -74,5 +76,26 @@ function showComments(array){
     
 
 function showProductRelacionado(productosRelacionados){
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < productosRelacionados.length; i++){ 
+        let come = productosRelacionados[i];
+        console.log(i)
+        htmlContentToAppend += `
+        <div class="col">
+            <div class="card">
+                <div class="card mb-4 shadow-sm custom-card cursor-active" onclick="enviarID(${come.id})" style="height: 50px">
+                    <img class="card-img-top img-fluid" src="${come.image}">
+                    <div class="card-body">
+                    <h3 class="card-title">${come.name}</h3>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        `
+        document.getElementById("relacionados").innerHTML = htmlContentToAppend;    }
+    }
+
+
     
-}

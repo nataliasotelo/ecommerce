@@ -74,11 +74,6 @@ function showProductsList(array){
     }
 }
 
-//guardo en el localStorage el id del producto que quiero amplificar y lo envío 
-function enviarID(id){
-    localStorage.setItem("id_producto", id);
-    window.location = "product-info.html"
-}
 
 function sortAndShowProducts(sortCriteria, productsArray){
     currentSortCriteria = sortCriteria;
