@@ -46,5 +46,5 @@ var getJSONData = function (url) {
 
 document.addEventListener("DOMContentLoaded", function(){
 const nombre = document.getElementById("perfil")
-    nombre.innerHTML = localStorage.getItem("text")
+    nombre.innerHTML = sessionStorage.getItem("text")
 });

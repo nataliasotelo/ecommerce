@@ -1,5 +1,11 @@
+function estaLog(){
+    if (sessionStorage.getItem("text") == null)
+    return false;
+    else return true
+}
+
 document.addEventListener("DOMContentLoaded", function(){
-    if(localStorage.getItem("text") == NULL){
+    if (estaLog()){
         document.getElementById("autos").addEventListener("click", function() {
             localStorage.setItem("catID", 101);
             window.location = "products.html"
