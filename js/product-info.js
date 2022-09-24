@@ -12,14 +12,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         cat_prod.innerHTML = resultObj.data.category;
         cant_vend.innerHTML = resultObj.data.soldCount;
         if (resultObj.status === "ok") {
-        
-            //productosRelacionados = resultObj.data.relatedProducts;
             imagenes = resultObj.data.images;
             // console.log(imagenes)
             showProductIm(imagenes);
         
             productosRelacionados = resultObj.data.relatedProducts;
-            console.log(productosRelacionados)
             //esta va a mostrar abajo los productos relacionados
              showProductRelacionado(productosRelacionados);
         }
@@ -80,19 +77,17 @@ function showProductRelacionado(productosRelacionados){
 
     for(let i = 0; i < productosRelacionados.length; i++){ 
         let come = productosRelacionados[i];
-        console.log(i)
         htmlContentToAppend += `
-        <div class="col">
-            <div class="card">
-                <div class="card mb-4 shadow-sm custom-card cursor-active" onclick="enviarID(${come.id})" style="height: 50px">
-                    <img class="card-img-top img-fluid" src="${come.image}">
+    
+            <div class="card" style="width: 200px; margin-right: 20px;">
+                <div class="card card-custom bg-white border-white border-0 cursor-active" onclick="enviarID(${come.id})" >
+                    <img class="card-img-top img-fluid" src="${come.image}" alt="Card Columns" style="width: 200px;" >
                     <div class="card-body">
                     <h3 class="card-title">${come.name}</h3>
                     </div>
                     
                 </div>
             </div>
-        </div>
         `
         document.getElementById("relacionados").innerHTML = htmlContentToAppend;    }
     }
