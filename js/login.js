@@ -3,7 +3,7 @@ const user = document.getElementById("floatingInput");
 
 regBtn.addEventListener("click", function(evt){
     evt.preventDefault();
-    if (user.value) sessionStorage.setItem("text", user.value)
+    if (user.value) localStorage.setItem("user", user.value)
 
     if (password.value.length < 6){
         Swal.fire({

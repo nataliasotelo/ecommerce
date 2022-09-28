@@ -45,8 +45,8 @@ var getJSONData = function (url) {
 };
 
 document.addEventListener("DOMContentLoaded", function(){
-const nombre = document.getElementById("perfil")
-    nombre.innerHTML = sessionStorage.getItem("text")
+  const nombre = document.getElementById("perfil")
+  nombre.innerHTML = localStorage.getItem("user")
 });
 
 
@@ -55,3 +55,9 @@ function enviarID(id){
   localStorage.setItem("id_producto", id);
   window.location = "product-info.html"
 }
+
+
+
+document.getElementById("cerrarsesion").addEventListener("click", function(){
+  localStorage.clear()
+})

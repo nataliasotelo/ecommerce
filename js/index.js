@@ -1,5 +1,5 @@
 function estaLog(){
-    if (sessionStorage.getItem("text") == null)
+    if (localStorage.getItem("user") == null)
     return false;
     else return true
 }
