@@ -76,14 +76,14 @@ function showProductRelacionado(productosRelacionados){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < productosRelacionados.length; i++){ 
-        let come = productosRelacionados[i];
+        let rel = productosRelacionados[i];
         htmlContentToAppend += `
     
             <div class="card" style="width: 200px; margin-right: 20px;">
                 <div class="card card-custom bg-white border-white border-0 cursor-active" onclick="enviarID(${come.id})" >
-                    <img class="card-img-top img-fluid" src="${come.image}" alt="Card Columns" style="width: 200px;" >
+                    <img class="card-img-top img-fluid" src="${rel.image}" alt="Card Columns" style="width: 200px;" >
                     <div class="card-body">
-                    <h3 class="card-title">${come.name}</h3>
+                    <h3 class="card-title">${rel.name}</h3>
                     </div>
                     
                 </div>
