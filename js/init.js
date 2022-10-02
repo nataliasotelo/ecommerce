@@ -19,7 +19,7 @@ let hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-var getJSONData = function (url) {
+const getJSONData = function (url) {
   var result = {};
   showSpinner();
   return fetch(url)
@@ -47,6 +47,8 @@ var getJSONData = function (url) {
 document.addEventListener("DOMContentLoaded", function(){
   const nombre = document.getElementById("perfil")
   nombre.innerHTML = localStorage.getItem("user")
+
+   if(!localStorage.getItem("user")) window.location = "login.html"
 });
 
 

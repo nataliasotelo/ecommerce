@@ -53,7 +53,7 @@ function showProductsList(array){
 
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
-            <div class="row shadow-sm custom-card cursor-active" onclick="enviarID(${productillo.id})">
+            <div class="row custom-card cursor-active" onclick="enviarID(${productillo.id})">
                 <div class="col-3">
                     <img src=" ${productillo.image} " alt="product image" class="img-thumbnail">
                 </div>
