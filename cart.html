@@ -36,7 +36,7 @@
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                   <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
                   <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-                  <li><a class="dropdown-item" href="login.html">Cerrar sesión</a></li>
+                  <li><a class="dropdown-item" id="cerrarsesion" href="login.html">Cerrar sesión</a></li>
                 </ul>
               </li>
             </ul>
@@ -47,8 +47,28 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <h1 class="titlecart">Carrito de Compras</h1>
+      
+      <div class="row">
+        <div class="col-md-9 m-auto">
+          <h3>Artículos a comprar</h3>
+          <table  class="table table-condensed table-striped">     
+            <!-- si no es esa clase, tambien tengo esta "table users table-hover" -->
+            <thead>
+              <tr>
+                <th class="col-sm-1"></th>
+                <th class="col-sm-2">Nombre</th>
+                <th class="col-sm-2">Costo</th>
+                <th class="col-sm-2">Cantidad</th>
+                <th class="col-sm-2">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="productoComprado">
+            </tbody>
+          </table>
+          <hr>
+          <h3>Tipo de envío</h3>
+        </div>
       </div>
     </div>
   </main>

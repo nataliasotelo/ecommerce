@@ -236,3 +236,27 @@ a.custom-card:hover {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
+.container .titlecart{
+  display : flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.container #productoComprado #fotoVentas{
+  max-width:100px
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
