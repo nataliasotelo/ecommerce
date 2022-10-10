@@ -20,7 +20,7 @@ function showCompras(arreglo){
             <tr>
                 <th scope="row"><img id="fotoVentas" src="${compra.image}"></th>
                 <td>${compra.name}</td>
-                <td>${compra.unitCost}</td>
+                <td>${compra.currency} ${compra.unitCost}</td>
                 <td><button type="button" id="restar" class="btn btn-light">-</button> <input id="inp" value="1" type="number" style="width:30px" min="1"> <button type="button" id="sumar" class="btn btn-light">+</button></td >
                 <td id="subtotal"> ${compra.currency} ${compra.unitCost} </td>
                 </tr>

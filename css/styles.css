@@ -260,3 +260,18 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.container .checkbox {
+  margin: 2px;
+}
+
+.container #dirEnvio{
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .container .checkbox {
+  display: inline;
+  margin: 20px;
+  margin-top: 25px;
+} */

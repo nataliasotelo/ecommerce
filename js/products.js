@@ -1,7 +1,6 @@
 const ORDER_ASC_BY_PRICE = "Precio";
 const ORDER_DESC_BY_PRICE = "PrecioMenor";
 const ORDER_BY_PROD_REL = "Vendidos";
-let currentCategoriesArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
