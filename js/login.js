@@ -1,5 +1,7 @@
-const password = document.getElementById("floatingPassword");
-const user = document.getElementById("floatingInput");
+document.addEventListener("DOMContentLoaded", function(e){
+    e.preventDefault();
+    const password = document.getElementById("floatingPassword");
+    const user = document.getElementById("floatingInput");
 
 regBtn.addEventListener("click", function(evt){
     evt.preventDefault();
@@ -22,3 +24,8 @@ regBtn.addEventListener("click", function(evt){
         setTimeout(function(evt) {window.location="index.html"}, 2500);
     }
 })
+
+   
+
+})
+
