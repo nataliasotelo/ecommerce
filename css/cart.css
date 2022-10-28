@@ -1,3 +1,9 @@
 .container .separar{
     margin-top: 7px;
 }
+
+
+
+.container .row .col-md-9 #botonFin{
+    margin-top: 10px;
+}
