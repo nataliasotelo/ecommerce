@@ -125,3 +125,93 @@ function showProductoComprado(arreglo){
 //     //     porcentaje = 5;
 //     // }
 // }
+
+
+
+function validarFormulario() {
+    iguales = 1;
+      let  forms = document.querySelectorAll('.needs-validation')
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+    
+            form.classList.add('was-validated')
+          }, false)
+        })  
+     
+      // let nombre = document.getElementById('nombre').value;
+      // let apellido = document.getElementById('apellido').value;
+      // let email = document.getElementById('email').value;
+      // let password1 = document.getElementById('password1').value;
+      // let password2 = document.getElementById('password2').value;
+      // console.log(nombre, apellido, email, password1, password2);
+  
+      
+      let 
+    
+       if  (document.getElementById("terminos").checked === false) {
+        document.getElementById("terminos").classList.add('is-invalid');
+        document.getElementById("terminos2").classList.add('is-invalid');    
+          return ;
+      }
+    
+         else if (nombre.length == 0 || apellido.length == 0 || email.length == 0 || password1.length < 6 || password2.length < 6  ) {
+    
+          return;
+      }
+       else if (password1 !== password2) {
+        
+         validar()
+         document.getElementById('password2').setCustomValidity('Las contraseñas no coinciden');
+  
+  
+      }     
+  
+    else {
+      validado()
+          alert("Registro exitoso");     
+    } 
+  
+    
+  }
+  function validar() { 
+    
+   
+  
+      let password1 = document.getElementById('password1').value;
+      let password2 = document.getElementById('password2').value;
+      if (password1 !== password2) {
+        document.getElementById('password2').setCustomValidity('Las contraseñas no coinciden');
+        document.getElementById('password2').classList.add('is-invalid');
+        document.getElementById('password2').classList.remove('is-valid');
+      
+  
+      }
+      else {
+        document.getElementById('password2').setCustomValidity('');
+  
+        document.getElementById('password2').classList.add('is-valid');
+        document.getElementById('password2').classList.remove('is-invalid');
+      }
+    ;
+  
+  }
+    
+  
+  
+  
+  
+  
+  
+  function validado() {
+    
+    document.getElementById("terminos").classList.remove('is-invalid');
+    document.getElementById("terminos2").classList.remove('is-invalid');
+  
+  
+    
+  }

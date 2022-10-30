@@ -143,22 +143,24 @@
                     <h4 class="modal-title" id="formaDePago"><b>Forma de pago</b></h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
-                    <p class="checkbox"><input type="radio" id="tarjetaDeCredito" name="Pago"> Tarjeta de crédito </p>
+                  <form action="#" method="get" class="row mt-4 needs-validation" novalidate>
 
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <label for="numero de tarjeta" class="form-label">Número de tarjeta</label>
-                        <input class="form-control" id="dirEnvio" required type="text" style="width:200px">
-                        <div class="invalid-feedback">
-                          Por favor, ingrese un número valido.
+                    <div class="modal-body">
+                      <p class="checkbox"><input type="radio" id="tarjetaDeCredito" name="Pago"> Tarjeta de crédito </p>
+                      
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <label for="numero de tarjeta" class="form-label">Número de tarjeta</label>
+                          <input class="form-control" id="dirEnvio" required type="text" style="width:200px">
+                          <div class="invalid-feedback">
+                            Por favor, ingrese un número valido.
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <label for="codigo de seg" class="form-label">Código de seg.</label>
-                        <input class="form-control" id="numEnvio" type="text" required>
-                        <div class="invalid-feedback">
+                        <div class="col-sm-4">
+                          <label for="codigo de seg" class="form-label">Código de seg.</label>
+                          <input class="form-control" id="numEnvio" type="text" required>
+                          <div class="invalid-feedback">
                           Por favor, ingrese el código de seguridad.
                         </div>
                       </div>
@@ -180,6 +182,7 @@
                       </div>
                     </div>
                   </div>
+                </form>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
                     
