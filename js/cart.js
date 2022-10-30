@@ -151,7 +151,26 @@ function validarFormulario() {
       // console.log(nombre, apellido, email, password1, password2);
   
       
-      let 
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  dirEnvio = document.getElementById("dirEnvio");
+      let  numEnvio = document.getElementById("numEnvio");
+      let  vencimientoTar = document.getElementById("vencimientoTar");
+      let  checkEnvio2 = document.getElementById("checkEnvio2");
+      let  numCuenta = document.getElementById("numCuenta");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+      let  tarjetaDeCredito = document.getElementById("tarjetaDeCredito");
+
     
        if  (document.getElementById("terminos").checked === false) {
         document.getElementById("terminos").classList.add('is-invalid');
