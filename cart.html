@@ -77,134 +77,153 @@
             <p class="checkbox"><input type="radio" id="checkEnvio3" name="Basic"> Standard 12 a 15 días (5%)</p>
           </div>
           <h4 class="separar">Dirección de envío</h4>
-          <div class="row">
-            <div class="col-sm-6">
-              <p class="checkbox">Calle </p><input class="form-control" id="dirEnvio" type="text" style="width:400px">
-            </div>
-            <div class="col-sm-4">
-              <p class="checkbox">Número </p><input class="form-control" id="numEnvio" type="text" style="width:200px">
-            </div>
-            <div class="col-sm-4">
-              <p class="checkbox">Esquina</p><input class="form-control" type="text" style="width:400px">
-            </div>
-          </div>
-          <hr>
-          <div class="costos">
-            <h3>Costos</h3>
-            <div class="list-group-item list-group-item">
-              <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                  <div class="mb-0">
-                    <h5>Subtotal</h5>
-                    <p> Costo unitario del producto por cantidad </p>
-                  </div>
-                  <div class="col-2">
-                    <div id="subtot_id"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="list-group-item list-group-item">
-              <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                  <div class="mb-0">
-                    <h5>Costo de envío</h5>
-                    <p> Según el tipo de envío </p>
-                  </div>
-                  <div class="col-2">
-                    <div id="costViaje_id"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="list-group-item list-group-item">
-              <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                  <div class="mb-0">
-                    <h5>Total ($)</h5>
-                  </div>
-                  <div class="col-2">
-                    <div id="total_id"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <form action="#" method="get" class="row mt-4 needs-validation" id="formCart" novalidate>
 
-          <hr>
-          <h3>Forma de pago</h3>
-          <hr>
-          <div>
-            <div class="modal fade" id="ModalToggle" aria-hidden="true" aria-labelledby="ModalToggleLabel"
-              tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="formaDePago"><b>Forma de pago</b></h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="row">
+              <div class="col-sm-6">
+                <label class="form-label">Calle </label>
+                <input class="form-control" id="dirEnvio" type="text" style="width:400px" required>
+                <div class="invalid-feedback">
+                  Por favor elige algo valido
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <label class="form-label">Número </label>
+                <input class="form-control" id="puertaEnvio" type="text" style="width:200px" required>
+                <div class="invalid-feedback">
+                  Por favor elige algo valido
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <label class="form-label">Esquina</label>
+                <input class="form-control" type="text" id="esqEnvio" style="width:400px" required>
+                <div class="invalid-feedback">
+                  Por favor elige alñgo valido
+                </div>
+              </div>
+              <!-- </form> -->
+            </div>
+            <hr class="mt-2">
+            <div class="costos">
+              <h3>Costos</h3>
+              <div class="list-group-item list-group-item">
+                <div class="col">
+                  <div class="d-flex w-100 justify-content-between">
+                    <div class="mb-0">
+                      <h5>Subtotal</h5>
+                      <p> Costo unitario del producto por cantidad </p>
+                    </div>
+                    <div class="col-2">
+                      <div id="subtot_id"></div>
+                    </div>
                   </div>
-                  <form action="#" method="get" class="row mt-4 needs-validation" novalidate>
+                </div>
+              </div>
+              <div class="list-group-item list-group-item">
+                <div class="col">
+                  <div class="d-flex w-100 justify-content-between">
+                    <div class="mb-0">
+                      <h5>Costo de envío</h5>
+                      <p> Según el tipo de envío </p>
+                    </div>
+                    <div class="col-2">
+                      <div id="costViaje_id"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group-item list-group-item">
+                <div class="col">
+                  <div class="d-flex w-100 justify-content-between">
+                    <div class="mb-0">
+                      <h5>Total ($)</h5>
+                    </div>
+                    <div class="col-2">
+                      <div id="total_id"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+            <h3>Forma de pago</h3>
+            <hr>
+            <div>
+              <div class="modal fade" id="ModalToggle" aria-hidden="true" aria-labelledby="ModalToggleLabel"
+                tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="formaDePago"><b>Forma de pago</b></h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- <form action="#" method="get" class="row mt-4 needs-validation" id="formCart" novalidate> -->
 
                     <div class="modal-body">
                       <p class="checkbox"><input type="radio" id="tarjetaDeCredito" name="Pago"> Tarjeta de crédito </p>
-                      
+
                       <hr>
                       <div class="row">
                         <div class="col-sm-6">
                           <label for="numero de tarjeta" class="form-label">Número de tarjeta</label>
-                          <input class="form-control" id="dirEnvio" required type="text" style="width:200px">
+                          <input class="form-control" id="numEnvio" maxlength="16" minlength="16" required type="text" style="width:200px">
                           <div class="invalid-feedback">
                             Por favor, ingrese un número valido.
                           </div>
                         </div>
                         <div class="col-sm-4">
                           <label for="codigo de seg" class="form-label">Código de seg.</label>
-                          <input class="form-control" id="numEnvio" type="text" required>
+                          <input class="form-control" id="codEnvio" type="text" maxlength="3" minlength="3" required>
                           <div class="invalid-feedback">
-                          Por favor, ingrese el código de seguridad.
+                            Por favor, ingrese el código de seguridad.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <label for="vencimiento de tarjeta" class="form-label">Vencimiento (MM/AA)</label>
+                        <input class="form-control" id="vencimientoTar" maxlength="5" minlength="5" type="text" style="width:200px" required>
+                        <div class="invalid-feedback">
+                          Por favor, ingrese un vencimiento válido.
+                        </div>
+                      </div>
+                      <p class="checkbox"><input type="radio" id="checkEnvioBanco" name="Pago"> Transferencia bancaria
+                      </p>
+                      <hr>
+                      <div class="col-sm-6">
+                        <label for="numero de cuenta" class="form-label">Número de cuenta </label>
+                        <input class="form-control" id="numCuenta" maxlength="20"  minlength="20" type="text" style="width:200px" required>
+                        <div class="invalid-feedback">
+                          Por favor, ingrese un número de cuenta válido.
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                      <label for="vencimiento de tarjeta" class="form-label">Vencimiento (MM/AA)</label>
-                      <input class="form-control" type="text" style="width:200px">
-                      <div class="invalid-feedback">
-                        Por favor, ingrese un vencimiento válido.
-                      </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" id="cerrarModal" data-bs-dismiss="modal">Cerrar</button>
+
+                      <!-- <button class="btn btn-primary" data-bs-target="#ModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button> -->
                     </div>
-                    <p class="checkbox"><input type="radio" id="checkEnvio2" name="Pago"> Transferencia bancaria </p>
-                    <hr>
-                    <div class="col-sm-6">
-                      <label for="numero de cuenta" class="form-label">Número de cuenta </label>
-                      <input class="form-control" type="text" style="width:200px">
-                      <div class="invalid-feedback">
-                        Por favor, ingrese un número de cuenta válido.
-                      </div>
-                    </div>
-                  </div>
-                </form>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                    
-                    <!-- <button class="btn btn-primary" data-bs-target="#ModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button> -->
                   </div>
                 </div>
               </div>
-            </div>
-            <a data-bs-toggle="modal" href="#ModalToggle" role="button">Seleccionar</a>
+              <a data-bs-toggle="modal" href="#ModalToggle" id="seleccionarModal" role="button">Seleccionar</a>
 
-          </div>
-          <!-- este es boton al que esta todo vinculado!! -->
-          <!-- lleva algo que dice no seleccionado y cuando selecciono se cambia! -->
-          <div class="d-grid gap-2">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" id="botonFin" >Finalizar compra</button>
-          </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" id="botonFin"
+                  onclick="validarFormulario()">Finalizar compra</button>
+              </div>
+          </form>
         </div>
+        
       </div>
+    </div>
     </div>
 
 
-
+    <div class="alert alert-success fade" role="alert" id ="alertaPago"> 
+      Compro con éxito!
+    </div>
 
   </main>
   <footer class="text-muted">
