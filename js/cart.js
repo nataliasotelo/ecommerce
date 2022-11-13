@@ -4,6 +4,7 @@ let costoEnvio = document.getElementById("costViaje_id");
 let total = document.getElementById("total_id");
 let productos = [];
 let porcentaje = 15;
+let cant = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   if (localStorage.getItem("carrito")){
@@ -44,14 +45,13 @@ function showProductoComprado(arreglo) {
         
         `
 
-        subtotal.innerText = produComprado.currency + ' ' + produComprado.unitCost;
-        costoEnvio.innerText = produComprado.currency + ' ' + ((produComprado.unitCost * porcentaje) / 100);
-        total.innerHTML = produComprado.currency + (parseInt(produComprado.unitCost) + parseInt(((produComprado.unitCost * porcentaje) / 100)));
-    
+        cant = produComprado.unitCost + cant;
+
+        // estas tres lineas van en una funcion afuera o despues del for c: 
         document.getElementById("productoComprado").innerHTML = htmlContentToAppend;
-    
-
-
+        
+        
+        
         document.getElementById(`inp-id:${produComprado.id}`).addEventListener("keyup", function (e) {
           if (e.target.value)
           document.getElementById("subtotal").innerText = produComprado.currency + ' ' + parseInt(e.target.value) * produComprado.unitCost;
@@ -63,37 +63,40 @@ function showProductoComprado(arreglo) {
         })
       
        
-        document.getElementById("checkEnvio1").onclick = function (e) {
-          porcentaje = 15;
-          valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
-          subtotal.innerText = produComprado.currency + ' ' + valor;
+        // document.getElementById("checkEnvio1").onclick = function (e) {
+        //   porcentaje = 15;
+        //   valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
+        //   subtotal.innerText = produComprado.currency + ' ' + valor;
         
-          costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
-          total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
-        }
+        //   costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
+        //   total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
+        // }
         
-        document.getElementById("checkEnvio2").onclick = function (e) {
-          porcentaje = 7;
-          valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
-          subtotal.innerText = produComprado.currency + ' ' + valor;
-       
-          costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
-          total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
-        }
-    
-        
-        document.getElementById("checkEnvio3").onclick = function (e) {
-          porcentaje = 5;
-          valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
-          subtotal.innerText = produComprado.currency + ' ' + valor;
+        // document.getElementById("checkEnvio2").onclick = function (e) {
+          //   porcentaje = 7;
+          //   valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
+          //   subtotal.innerText = produComprado.currency + ' ' + valor;
           
-          costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
-          total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
-        }
-  }
-  
+          //   costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
+          //   total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
+          // }
+          
+          
+          // document.getElementById("checkEnvio3").onclick = function (e) {
+            //   porcentaje = 5;
+            //   valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
+            //   subtotal.innerText = produComprado.currency + ' ' + valor;
+            
+            //   costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
+            //   total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
+            // }
+          }
+          
+          subtotal.innerText = produComprado.currency + ' ' + cant;
+          costoEnvio.innerText = produComprado.currency + ' ' + ((cant * porcentaje) / 100);
+          total.innerHTML = produComprado.currency + (parseInt(cant) + parseInt(((cant * porcentaje) / 100)));
 }
-
+        
 function btnRestar(id){
   if (document.getElementById(`inp-id:${id}`).value > 1) {
     document.getElementById(`inp-id:${id}`).value -= 1;
@@ -102,23 +105,50 @@ function btnRestar(id){
     subtotal.innerText = produComprado.currency + ' ' + valor;
     costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
     total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
-  }
-  
+}
+
 }
 
 function btnSumar(id){
-  
-    // console.log('wenas')
-    document.getElementById(`inp-id:${id}`).value = 1 + parseInt(document.getElementById(`inp-id:${id}`).value);
-    document.getElementById("subtotal").innerText = produComprado.currency + ' ' + parseInt(document.getElementById(`inp-id:${id}`).value) * produComprado.unitCost;
+  document.getElementById(`inp-id:${id}`).value = 1 + parseInt(document.getElementById(`inp-id:${id}`).value);
+  document.getElementById("subtotal").innerText = produComprado.currency + ' ' + parseInt(document.getElementById(`inp-id:${id}`).value) * produComprado.unitCost;
 
-    valor = parseInt(document.getElementById(`inp-id:${id}`).value) * produComprado.unitCost;
-    subtotal.innerText = produComprado.currency + ' ' + valor;
-    
-    costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
-    total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
+  valor = parseInt(document.getElementById(`inp-id:${id}`).value) * produComprado.unitCost;
+  subtotal.innerText = produComprado.currency + ' ' + valor;
   
+  costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
+  total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
+
 }
+
+function envioPremium(){
+  porcentaje = 15;
+  valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
+  subtotal.innerText = produComprado.currency + ' ' + valor;
+
+  costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
+  total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
+}
+
+
+function envioExpress(){
+  porcentaje = 7;
+  valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
+  subtotal.innerText = produComprado.currency + ' ' + valor;
+
+  costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
+  total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
+}
+
+function envioStandard(){
+  porcentaje = 5;
+  valor = parseInt(document.getElementById("inp").value) * produComprado.unitCost;
+  subtotal.innerText = produComprado.currency + ' ' + valor;
+  
+  costoEnvio.innerText = produComprado.currency + ' ' + ((valor * porcentaje) / 100);
+  total.innerHTML = produComprado.currency + ' ' + (parseInt(valor) + parseInt(((valor * porcentaje) / 100)));
+}
+
 
 document.getElementById("cerrarModal").addEventListener("click", function(){
   let numEnvio = document.getElementById("numEnvio").value;

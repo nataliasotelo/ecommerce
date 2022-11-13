@@ -72,9 +72,9 @@
           <hr>
           <h4>Tipo de envío</h4>
           <div>
-            <p class="checkbox"><input type="radio" id="checkEnvio1" name="Basic" checked> Premium 2 a 5 días (15%)</p>
-            <p class="checkbox"><input type="radio" id="checkEnvio2" name="Basic"> Express 5 a 8 días (7%) </p>
-            <p class="checkbox"><input type="radio" id="checkEnvio3" name="Basic"> Standard 12 a 15 días (5%)</p>
+            <p class="checkbox"><input type="radio" id="checkEnvio1" onclick="envioPremium()" name="Basic" checked> Premium 2 a 5 días (15%)</p>
+            <p class="checkbox"><input type="radio" id="checkEnvio2" onclick="envioExpress()" name="Basic"> Express 5 a 8 días (7%) </p>
+            <p class="checkbox"><input type="radio" id="checkEnvio3" onclick="envioStandard()" name="Basic"> Standard 12 a 15 días (5%)</p>
           </div>
           <h4 class="separar">Dirección de envío</h4>
           <form action="#" method="get" class="row mt-4 needs-validation" id="formCart" novalidate>
