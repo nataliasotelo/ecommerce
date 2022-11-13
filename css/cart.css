@@ -7,3 +7,8 @@
 .container .row .col-md-9 #botonFin{
     margin-top: 10px;
 }
+
+.container #saveChange{
+    width:80px;
+    height:19px;
+}

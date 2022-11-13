@@ -3,8 +3,24 @@ const precio_prod = document.getElementById("precio_prod");
 const desc_prod = document.getElementById("desc_prod");
 const cat_prod = document.getElementById("cat_prod");
 const cant_vend = document.getElementById("cant_vend");
+let products = [];
+var newCompra = new Object();
+let datados = new Array();
+
 
 document.addEventListener("DOMContentLoaded", function (e) {    
+    // getJSONData(entrega5_cart).then(function (resultados) {
+    //     if (resultados.status === "ok") {
+    //         datados.push(resultados.data.articles)
+    //         localStorage.setItem("carrito", JSON.stringify(datados))
+    //     }
+    //   })
+    // getJSONData(entrega5_cart).then(function (resultObj) {
+    //     if (resultObj.status === "ok") {
+    //       productos = resultObj.data.articles;
+    //       localStorage.setItem("carrito", JSON.stringify(productos))
+    //     }
+    //   })
     getJSONData(ampliar_producto).then(function (resultObj) {
         name_prod.innerHTML = resultObj.data.name;
         precio_prod.innerHTML = resultObj.data.cost +` `+ resultObj.data.currency;
@@ -19,6 +35,43 @@ document.addEventListener("DOMContentLoaded", function (e) {
             //esta va a mostrar abajo los productos relacionados
             showProductRelacionado(productosRelacionados);
         }
+        let buyProduct = document.getElementById("buyProduct")
+        buyProduct.addEventListener("click", function(e){
+            //Imaginate que el usuario añadió a favorito estos coches                        
+            //Miramos si ya hemos guardado algo anteriormente.
+            let recoveredData = localStorage.getItem("carrito")
+            console.log(recoveredData)
+
+            if(recoveredData === null){
+                // let productos = [];
+                newCompra.id = resultObj.data.id
+                newCompra.name = resultObj.data.name
+                newCompra.count = 1
+                newCompra.unitCost = resultObj.data.cost
+                newCompra.currency = resultObj.data.currency
+                newCompra.image = resultObj.data.images[0];
+                //No tenemos nada guardado, por lo cual vamos a guardar el carListFav
+                datados.push(newCompra);
+                localStorage.setItem("carrito", JSON.stringify(datados))
+            } else {
+                //Tenemos algo, por lo cual vamos a añadir un nuevo coche
+            datados = JSON.parse(recoveredData)
+            console.log(datados)
+            // let newProduct = resultObj.data
+            newCompra.id = resultObj.data.id
+            newCompra.name = resultObj.data.name
+            newCompra.count = 1
+            newCompra.unitCost = resultObj.data.cost
+            newCompra.currency = resultObj.data.currency
+            newCompra.image = resultObj.data.images[0];
+            //Asegurate que lo que guardes es realmente un array.
+            datados.push(newCompra)
+            localStorage.setItem("carrito", JSON.stringify(datados))
+            }
+            // products.push(resultObj.data)
+            // console.log(products)
+            // localStorage.setItem("carrito", JSON.stringify(products))
+        })
     });
     
     getJSONData(comments_x_producto).then(function(resultObj){
@@ -31,10 +84,32 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 }
 )
+
+
+// function cargarAutitoUser(arreglo){
+//          datados.push(resultObj.data.articles)
+//           console.log(datados)
+// }
+
+
 function showProductIm(array){
     for (let i = 0; i < array.length; i++){
         let fotito = array[i]
-        document.getElementById("im").innerHTML += `<li><a data-target="#pic" data-toggle="tab"><img src="${fotito}" style="width: 20.25rem; display: flex;" alt="product image" class="img-thumbnail"></a></li> `
+        if (i === 0){
+            document.getElementById("im").innerHTML += `
+            <div class="carousel-item active">
+                <img src="${fotito}" class="d-block w-100">
+            </div>
+          `
+        }
+        else {
+            document.getElementById("im").innerHTML += `
+            <div class="carousel-item">
+                <img src="${fotito}" class="d-block w-100">
+            </div>
+          ` 
+        }
+        
     }
 }
 

@@ -56,9 +56,12 @@ document.addEventListener("DOMContentLoaded", function(){
 function enviarID(id){
   localStorage.setItem("id_producto", id);
   window.location = "product-info.html"
+  // localStorage.setItem("buy", false);
 }
 
 
 document.getElementById("cerrarsesion").addEventListener("click", function(){
   localStorage.clear()
 })
+
+

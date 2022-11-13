@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 regBtn.addEventListener("click", function(evt){
     evt.preventDefault();
     if (user.value) localStorage.setItem("user", user.value)
-
+   
     if (password.value.length < 6){
         Swal.fire({
             icon: 'error',
@@ -22,10 +22,9 @@ regBtn.addEventListener("click", function(evt){
             'success'
         )
         setTimeout(function(evt) {window.location="index.html"}, 2500);
+        
     }
 })
-
-   
 
 })
 
