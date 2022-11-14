@@ -1,7 +1,7 @@
 let FirstName = document.getElementById("FirstName");
 let Name2 = document.getElementById("Name2");
 let SecondName = document.getElementById("SecondName");
-let SecondNAme2 = document.getElementById("SecondNAme2");
+let SecondNAme2 = document.getElementById("SecondName2");
 let email = document.getElementById("email");
 let phone = document.getElementById("phone");
 
@@ -13,13 +13,18 @@ document.addEventListener("DOMContentLoaded", function(){
         SecondName.value = localStorage.getItem("secondName")
         phone.value = localStorage.getItem("phone")
     }
+    if (localStorage.getItem("Name2")) Name2.value = localStorage.getItem("Name2");
+    if (localStorage.getItem("SecondName2")) SecondNAme2.value = localStorage.getItem("SecondName2");
 })
 
 
 document.getElementById("saveChange").addEventListener("click", function(){
     if((FirstName.value.length > 0) && (SecondName.value.length > 0) && (phone.value.length > 0))
     document.getElementById("alertaPago").classList.add("show")
-
+    if (Name2.value.length > 0)
+    localStorage.setItem("Name2", Name2.value);
+    if (SecondNAme2.value.length > 0)
+    localStorage.setItem("SecondName2", SecondNAme2.value);
   })
 
 let form = document.getElementById('formProfile')
@@ -28,9 +33,7 @@ form.addEventListener('submit', function (event) {
     event.preventDefault()
     event.stopPropagation()
     validarFormulario()
-    // document.getElementById("seleccionarModal").classList.add("text-danger")
-  }
-  console.log("entro") 
+  } 
   form.classList.add('was-validated')
 })
 
